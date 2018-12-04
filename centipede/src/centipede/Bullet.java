@@ -8,7 +8,7 @@ public class Bullet extends GameObject{
 
 	private Handler handler;
 	public static int score;
-
+	public static int deadobj = 0;
 	public Bullet(int x, int y, ID id, int health, Handler handler) {
 		super(x, y, id, health);
 		// TODO Auto-generated constructor stub
@@ -70,7 +70,11 @@ public class Bullet extends GameObject{
 					tempObject.health--;
 					score = score+2;
 					if(tempObject.health == 0){
+						deadobj++;
 						score = score+5;
+						if(deadobj == 9) {
+							score = score+600;
+						}
 						handler.removeObject(tempObject);
 					}		
 				}

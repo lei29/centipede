@@ -53,7 +53,7 @@ public class Game extends Canvas implements Runnable{
 	private void generateCentipede(){
 		//ArrayList<Segment> centipede = new ArrayList<Segment>(2);
 		int x= 0;
-		for(int i=0;i<4;i++){
+		for(int i=0;i<10;i++){
 			x = 500-i*25;
 			System.out.println(x);
 			

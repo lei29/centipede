@@ -5,6 +5,11 @@ package centipede;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
+import java.net.URL;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 
 public class Mouse extends MouseAdapter implements MouseMotionListener{
@@ -24,8 +29,22 @@ public class Mouse extends MouseAdapter implements MouseMotionListener{
 		//System.out.println(arg0.getX()+"."+arg0.getY());
 		handler.addObject(new Bullet(mx,my,ID.Bullet, 1, handler));
 		//System.out.println("lolololol");
+		URL url = getClass().getResource("shooting.wav");
+		
+		System.out.println(System.getProperty("user.dir"));
+		File shot = new File(url.getPath());
+		Playsound(shot);
 	}
 
+	static void Playsound(File sound) {
+		try {
+			Clip clip = AudioSystem.getClip();
+			clip.open(AudioSystem.getAudioInputStream(sound));
+			clip.start();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	
 	public void mouseMoved(MouseEvent event){

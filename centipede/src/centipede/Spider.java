@@ -22,8 +22,8 @@ public class Spider extends GameObject{
 
 	@Override
 	public void tick() {
-		velX = r.nextInt(10)-5;
-		velY = r.nextInt(10)-5;
+		velX = r.nextInt(100)-50;
+		velY = r.nextInt(100)-50;
 		//for(int i=0;i<10;i++){
 			x +=velX;
 			y +=velY;
